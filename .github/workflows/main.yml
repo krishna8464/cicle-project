@@ -56,18 +56,33 @@
 
 
 
-name: Github action ofr
-on:
-   push :
-     branches: [master]
+# name: Github action ofr
+# on:
+#    push :
+#      branches: [master]
+# jobs:
+#    build:
+#      runs-on: ubuntu-latest
+#      steps:
+#        - uses: actions/checkout@v3
+#        - name: Print node version
+#          run: node --version
+#        - name: Print NPM version
+#          run: npm --version
+#        - name: Print pwd
+#          run: pwd  
+
+
+
+name: Print Node Version
+on: push
 jobs:
-   build:
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/checkout@v3
-       - name: Print node version
-         run: node --version
-       - name: Print NPM version
-         run: npm --version
-       - name: Print pwd
-         run: pwd  
+  print-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Print Node Version
+        run: node -v
