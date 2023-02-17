@@ -56,14 +56,14 @@
 
 
 
-name : Github action ofr
-on :
+name: Github action ofr
+on:
    push :
      branches: [master]
-jobs :
+jobs:
    build:
      runs-on: ubuntu-latest
      steps:
-       - uses : actions/checkout@v3
-       - name : Print Hello World
-        run : node --version
+       - uses: actions/checkout@v3
+       - name: Print Hello World
+         run: node --version
